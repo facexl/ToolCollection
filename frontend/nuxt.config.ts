@@ -1,3 +1,8 @@
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import * as AntD from 'ant-design-vue'
+import { addComponent } from '@nuxt/kit'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     runtimeConfig: {
@@ -9,7 +14,17 @@ export default defineNuxtConfig({
         }
     },
     modules: [
-        // '@nuxt/ui'
+        // for ant-design-vue types https://github.com/nuxt/nuxt/discussions/19016
+        async function (options, nuxt) {
+            for (const key in AntD) {
+              if (['version', 'install'].includes(key)) continue
+              await addComponent({
+                filePath: 'ant-design-vue',
+                name: `A${key}`,
+                export: key
+              })
+            }
+        },
     ],
     nitro:{
 
@@ -18,7 +33,17 @@ export default defineNuxtConfig({
 
     },
     vite:{
-
+        plugins: [
+            /* ... */
+            Components({
+              resolvers: [
+                AntDesignVueResolver(),
+              ],
+            }),
+        ],
+        // ssr: {
+        //     noExternal: ['moment', 'compute-scroll-into-view', 'ant-design-vue']
+        // }
     },
     webpack:{
 
