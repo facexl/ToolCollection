@@ -1,35 +1,35 @@
 <template>
+  <a-layout
+    class="app-container"
+    style="min-height: 100vh"
+  >
+    <Aside
+      class="app-aside"
+      :collapsed="collapsed"
+    />
     <a-layout
-      class="app-container"
-      style="min-height: 100vh"
+      class="app-content"
+      :class="{'app-content-small':collapsed}"
     >
-      <Aside
-        class="app-aside"
-        :collapsed="collapsed"
-      />
-      <a-layout
-        class="app-content"
-        :class="{'app-content-small':collapsed}"
-      >
-        <a-layout-header style="background: #fff; padding: 0">
-          <Header v-model:collapsed="collapsed" />
-        </a-layout-header>
-        <div style="padding:10px 0 0 10px">
-          <div style="background:#fff;padding:12px;min-height:calc(100vh - 74px);border-radius: 4px;position: relative;">
-            <slot></slot>
-          </div>
+      <a-layout-header style="background: #fff; padding: 0">
+        <Header v-model:collapsed="collapsed" />
+      </a-layout-header>
+      <div style="padding:10px 0 0 10px">
+        <div style="background:#fff;padding:12px;min-height:calc(100vh - 74px);border-radius: 4px;position: relative;">
+          <slot />
         </div>
-      </a-layout>
+      </div>
     </a-layout>
-  </template>
-  <script setup lang="ts">
-  import Header from './Header.vue'
-  import Aside from './Aside.vue'
+  </a-layout>
+</template>
+<script setup lang="ts">
+import Header from './Header.vue'
+import Aside from './Aside.vue'
 
   
-  const collapsed = ref<boolean>(false)
+const collapsed = ref<boolean>(false)
   
-  </script>
+</script>
   <style lang="less" scoped>
   .app-aside{
       position: fixed;

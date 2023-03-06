@@ -10,19 +10,19 @@ export default defineNuxtConfig({
         apiSecret: '123',
         // Keys within public are also exposed client-side
         public: {
-          apiBase: '/api'
+            apiBase: '/api'
         }
     },
     modules: [
         // for ant-design-vue types https://github.com/nuxt/nuxt/discussions/19016
         async function (options, nuxt) {
             for (const key in AntD) {
-              if (['version', 'install'].includes(key)) continue
-              await addComponent({
-                filePath: 'ant-design-vue',
-                name: `A${key}`,
-                export: key
-              })
+                if (['version', 'install'].includes(key)) continue
+                await addComponent({
+                    filePath: 'ant-design-vue',
+                    name: `A${key}`,
+                    export: key
+                })
             }
         },
         '@unocss/nuxt'
@@ -48,9 +48,9 @@ export default defineNuxtConfig({
         plugins: [
             /* ... */
             Components({
-              resolvers: [
-                AntDesignVueResolver(),
-              ],
+                resolvers: [
+                    AntDesignVueResolver(),
+                ],
             }),
         ],
         // ssr: {
@@ -62,13 +62,13 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-          charset: 'utf-8',
-          viewport: 'width=500, initial-scale=1',
-          title: 'ToolCollectio',
-          meta: [
+            charset: 'utf-8',
+            viewport: 'width=500, initial-scale=1',
+            title: 'ToolCollectio',
+            meta: [
             // <meta name="description" content="My amazing site">
-            { name: 'description', content: 'My amazing site.' }
-          ],
+                { name: 'description', content: 'My amazing site.' }
+            ],
         }
     }
 })

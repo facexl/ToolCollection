@@ -62,29 +62,29 @@ const child = ref()
 const breadcrumbs = ref([])
 
 watch(
-  route,
-  (v)=>{
-    filterRoutes.forEach((it) => {
-      it.children.forEach(item => {
-        if (it.route+item.route === v.path) {
-          father.value = it.name
-          child.value = item.name
-        }
-      })
-    })
-  },
-  {
-    immediate:true
-  }
+    route,
+    (v)=>{
+        filterRoutes.forEach((it) => {
+            it.children.forEach(item => {
+                if (it.route+item.route === v.path) {
+                    father.value = it.name
+                    child.value = item.name
+                }
+            })
+        })
+    },
+    {
+        immediate:true
+    }
 )
 
 
 defineEmits(['update:collapsed'])
    
 defineProps({
-  collapsed:{
-    type:Boolean
-  }
+    collapsed:{
+        type:Boolean
+    }
 })
 
 

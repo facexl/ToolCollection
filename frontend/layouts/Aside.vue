@@ -41,24 +41,24 @@
 import { UserOutlined,StarOutlined,ScheduleOutlined,GiftOutlined,ApartmentOutlined,ProfileOutlined,WhatsAppOutlined,ToolOutlined,PayCircleOutlined,SafetyOutlined,SettingOutlined,PieChartOutlined } from '@ant-design/icons-vue';
 const route = useRoute()
 const nameToComponents = {
-  StarOutlined,
-  UserOutlined,
-  ScheduleOutlined,
-  GiftOutlined,
-  ApartmentOutlined,
-  ProfileOutlined,
-  WhatsAppOutlined,
-  ToolOutlined,
-  PayCircleOutlined,
-  SafetyOutlined,
-  SettingOutlined,
-  PieChartOutlined
+    StarOutlined,
+    UserOutlined,
+    ScheduleOutlined,
+    GiftOutlined,
+    ApartmentOutlined,
+    ProfileOutlined,
+    WhatsAppOutlined,
+    ToolOutlined,
+    PayCircleOutlined,
+    SafetyOutlined,
+    SettingOutlined,
+    PieChartOutlined
 }
 const router = useRouter()
 defineProps({
-  collapsed:{
-    type:Boolean
-  }
+    collapsed:{
+        type:Boolean
+    }
 })
 // 子菜单选中 eg:['0-1']
 const selectedKeys = ref<string[]>([])
@@ -70,27 +70,27 @@ const appConfig = useAppConfig()
 const filterRoutes = ref(appConfig.menus)
 
 const initHighLightRoute = ()=>{
-  filterRoutes.value.forEach((it, i) => {
-    it?.children.forEach((item,oi) => {
-      if (it.route+item.route === route.path) {
-        openKeys.value = [String(i)]
-        selectedKeys.value = [`${i}-${oi}`]
-      }
+    filterRoutes.value.forEach((it, i) => {
+        it?.children.forEach((item,oi) => {
+            if (it.route+item.route === route.path) {
+                openKeys.value = [String(i)]
+                selectedKeys.value = [`${i}-${oi}`]
+            }
+        })
     })
-  })
 }
 
 // 直接登录系统会重定向到 index 中间页 权限判定之后才去其他菜单  
 // 这里中间页跳转完成后 重新展开对应菜单  
 const unwatch = router.afterEach((to,from)=>{
-  unwatch()
-  if(from.name==='index'){
-    initHighLightRoute()
-  }
+    unwatch()
+    if(from.name==='index'){
+        initHighLightRoute()
+    }
 })
 
 onMounted(()=>{
-  initHighLightRoute()
+    initHighLightRoute()
 })
 </script>
 <style lang="less" scoped>
