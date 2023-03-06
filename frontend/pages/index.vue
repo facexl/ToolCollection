@@ -2,6 +2,7 @@
     <div>
       hello world
       <a-button type="primary">123</a-button>
+      <div class="he">123</div>
     </div>
   </template>
   
@@ -12,7 +13,12 @@
   console.log(runtimeConfig)
   
   const appConfig = useAppConfig()
-  
+
   console.log(appConfig)
   
   </script>
+<style lang="less" scoped>
+.he{
+    color:red
+}
+</style>

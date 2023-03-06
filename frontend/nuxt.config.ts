@@ -25,7 +25,19 @@ export default defineNuxtConfig({
               })
             }
         },
+        '@unocss/nuxt'
     ],
+    // In the Nuxt module, we also provided some shortcuts for official presets:
+    unocss: {
+        // presets
+        uno: true, // enabled `@unocss/preset-uno`
+        icons: true, // enabled `@unocss/preset-icons`
+        attributify: true, // enabled `@unocss/preset-attributify`,
+    
+        // core options
+        shortcuts: [],
+        rules: [],
+    },
     nitro:{
 
     },
