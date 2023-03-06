@@ -1,0 +1,17 @@
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue",
+        "typescript",
+        "typescriptreact"
+    ],
+    "eslint.workingDirectories": [
+        "./src",
+        "./.vuepress/components"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}

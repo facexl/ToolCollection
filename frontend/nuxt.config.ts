@@ -64,7 +64,7 @@ export default defineNuxtConfig({
         head: {
           charset: 'utf-8',
           viewport: 'width=500, initial-scale=1',
-          title: 'My App',
+          title: 'ToolCollectio',
           meta: [
             // <meta name="description" content="My amazing site">
             { name: 'description', content: 'My amazing site.' }

@@ -15,10 +15,10 @@ interface MenuChildItem extends MenuBase{
 export default defineAppConfig({
     title: 'Hello Nuxt',
     theme: {
-      dark: true,
-      colors: {
-        primary: '#ff0000'
-      }
+        dark: true,
+        colors: {
+            primary: '#ff0000'
+        }
     },
     menus:[
         {
@@ -33,4 +33,4 @@ export default defineAppConfig({
             ]
         }
     ]
-  })
+})
