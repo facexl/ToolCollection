@@ -6,12 +6,12 @@
   
 <script lang="ts" setup>
   
-const runtimeConfig = useRuntimeConfig()
+// const runtimeConfig = useRuntimeConfig()
   
-console.log(runtimeConfig)
+// console.log(runtimeConfig)
   
-const appConfig = useAppConfig()
+// const appConfig = useAppConfig()
 
-console.log(appConfig)
+// console.log(appConfig)
   
 </script>
